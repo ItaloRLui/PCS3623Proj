@@ -1,0 +1,41 @@
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Se não a página faz um sidescroll e aparece uma parte branca na direita. Não sei o por quê. */
+}
+
+body{
+    background-image:url(imagens/login.jpg);
+    background-color: darkgray; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table td:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+table th:hover{
+    background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}

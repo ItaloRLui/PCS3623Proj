@@ -1,0 +1,4 @@
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Se não a página faz um sidescroll e aparece uma parte branca na direita. Não sei o por quê. */
+}
