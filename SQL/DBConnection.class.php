@@ -18,7 +18,7 @@ class DBConnection{
     $databaseSchema = "";
     $databaseCharset= "";
       
-    require $_SERVER['DOCUMENT_ROOT'] . '/SQL/dbConfig.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/hospital/SQL/dbConfig.php';
     
 	$this->setHost		( $databaseHost );
 	$this->setUsername	( $databaseUser );
@@ -88,7 +88,7 @@ class DBConnection{
   public function query($sql) {
       
     $mostrarSQL = "";
-    require $_SERVER['DOCUMENT_ROOT'] . '/SQL/dbConfig.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/hospital/SQL/dbConfig.php';
     
     $conexao = mysqli_connect($this->getHost(), $this->getUsername(), $this->getPassword(), $this->getSchema());
     

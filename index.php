@@ -1,19 +1,8 @@
-    <?php
-      if (isset($_GET['unset'])) {
-          session_unset();
-      }
-
-      if (isset($_GET['status'])) {
-          $status = $_GET['status'];
-          echo '<script type="text/javascript">alert("'.$status.'");</script>';
-      }
-    ?>
-
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Barbearia Xavier</title>
+  <title>Hospital KIMV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="imagens/logo_hospital.png" type="image/x-icon"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,6 +19,7 @@
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="conteudo.css">
+  <link rel="stylesheet" href="consultar.css">
 
     <!--Portifólio-->
   <link rel="stylesheet" href="css/base.css">  
@@ -41,10 +31,6 @@
    <script src="js/pace.min.js"></script>
    <script src="js/jquery-2.1.3.min.js"></script>
 </head>
-    
-<?php
-    session_start();
-?>
 
 <script type="text/javascript">
     function carregar(){

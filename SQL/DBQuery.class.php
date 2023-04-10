@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/SQL/DBConnection.class.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/hospital/SQL/DBConnection.class.php';
 
 class DBQuery {
 	
