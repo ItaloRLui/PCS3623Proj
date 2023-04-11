@@ -47,108 +47,101 @@
 
     switch($tabela){
         case 'Agendamento':
-            $idPaciente   = $_POST['idPaciente'];
-            $idMedico     = $_POST['idMedico'];
-            $idSala       = $_POST['idSala'];
-            $idSecretario = $_POST['idSecretario']; 
-            $tableName    = "hospital.".$tabela;
-            $dbQueryDel   = new DBQuery($tableName, "", "");
-            $resultSet    = $dbQueryDel->deleteWhere("paciente_id=".$idPaciente." AND medico_id=".$idMedico." AND sala_id=".$idSala." AND secretario_id=".$idSecretario."");
-            
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar agendamento!</p>";
-            }
-            else{
+            try {
+                $idPaciente   = $_POST['idPaciente'];
+                $idMedico     = $_POST['idMedico'];
+                $idSala       = $_POST['idSala'];
+                $idSecretario = $_POST['idSecretario']; 
+                $tableName    = "hospital.".$tabela;
+                $dbQueryDel   = new DBQuery($tableName, "", "");
+                $resultSet    = $dbQueryDel->deleteWhere("paciente_id=".$idPaciente." AND medico_id=".$idMedico." AND sala_id=".$idSala." AND secretario_id=".$idSecretario."");
                 echo "<p class='center'>Agendamento deletado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar agendamento!</p>";
             }
             break;
         case 'Enfermeiro':
-            $id         = $_POST['id'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "enfermeiro_id, nome, CIP, telefone";
-            $keyField   = "enfermeiro_id";
-            $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryDel->delete($id);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar enfermeiro!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "enfermeiro_id, nome, CIP, telefone";
+                $keyField   = "enfermeiro_id";
+                $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryDel->delete($id);
                 echo "<p class='center'>Enfermeiro deletado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar enfermeiro!</p>";
             }
             break;
         case 'Medico':
-            $id         = $_POST['id'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "medico_id, nome, especialização, telefone, CRM";
-            $keyField   = "medico_id";
-            $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryDel->delete($id);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar médico!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "medico_id, nome, especialização, telefone, CRM";
+                $keyField   = "medico_id";
+                $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryDel->delete($id);
                 echo "<p class='center'>Médico deletado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar médico!</p>";
             }
             break;
         case 'Paciente':
-            $id         = $_POST['id'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "paciente_id, nome, CPF, idade, contato_familia, medico_id, secretario_id";
-            $keyField   = "paciente_id";
-            $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryDel->delete($id);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar paciente!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "paciente_id, nome, CPF, idade, contato_familia, medico_id, secretario_id";
+                $keyField   = "paciente_id";
+                $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryDel->delete($id);
                 echo "<p class='center'>Paciente deletado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar paciente!</p>";
             }
             break;
         case 'Sala':
-            $id         = $_POST['id'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "sala_id, tipo_sala";
-            $keyField   = "sala_id";
-            $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryDel->delete($id);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar sala!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "sala_id, tipo_sala";
+                $keyField   = "sala_id";
+                $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryDel->delete($id);
                 echo "<p class='center'>Sala deletada com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar sala!</p>";
             }
             break;
         case 'Secretario':
-            $id         = $_POST['id'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "secretario_id, nome, telefone, CPF";
-            $keyField   = "secretario_id";
-            $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryDel->delete($id);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar secretário!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "secretario_id, nome, telefone, CPF";
+                $keyField   = "secretario_id";
+                $dbQueryDel = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryDel->delete($id);
                 echo "<p class='center'>Secretário deletado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar secretário!</p>";
             }
             break;
         case 'Medicos_enfermeiros':
-            $idMedico     = $_POST['idMedico'];
-            $idEnfermeiro = $_POST['idEnfermeiro']; 
-            $tableName    = "hospital.".$tabela;
-            $dbQueryDel   = new DBQuery($tableName, "", "");
-            $resultSet    = $dbQueryDel->deleteWhere("medico_id=".$idMedico." AND enfermeiro_id=".$idEnfermeiro);
-            
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao deletar relação entre médico e enfermeiro!</p>";
-            }
-            else{
+            try {
+                $idMedico     = $_POST['idMedico'];
+                $idEnfermeiro = $_POST['idEnfermeiro']; 
+                $tableName    = "hospital.".$tabela;
+                $dbQueryDel   = new DBQuery($tableName, "", "");
+                $resultSet    = $dbQueryDel->deleteWhere("medico_id=".$idMedico." AND enfermeiro_id=".$idEnfermeiro);
                 echo "<p class='center'>Relação entre médico e enfermeiro deletada com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao deletar relação entre médico e enfermeiro!</p>";
             }
             break;
 

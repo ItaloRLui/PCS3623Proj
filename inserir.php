@@ -47,132 +47,126 @@
 
     switch($tabela){
         case 'Agendamento':
-            $idPaciente   = $_POST['idPaciente'];
-            $idMedico     = $_POST['idMedico'];
-            $idSala       = $_POST['idSala'];
-            $idSecretario = $_POST['idSecretario']; 
-            $data         = $_POST['data'];
-            $horario      = $_POST['horario'];
-            $descrição    = $_POST['descrição'];
-            $tableName    = "hospital.".$tabela;
-            $fields       = "paciente_id, medico_id, sala_id, secretario_id, data, horario, descrição";
-            $keyField     = "";
-            $dbQueryIns   = new DBQuery($tableName, $fields, $keyField);
-            $resultSet    = $dbQueryIns->insert([$idPaciente, $idMedico, $idSala, $idSecretario, $data, $horario, $descrição]);
-            
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar agendamento!</p>";
-            }
-            else{
+            try {
+                $idPaciente   = $_POST['idPaciente'];
+                $idMedico     = $_POST['idMedico'];
+                $idSala       = $_POST['idSala'];
+                $idSecretario = $_POST['idSecretario']; 
+                $data         = $_POST['data'];
+                $horario      = $_POST['horario'];
+                $descrição    = $_POST['descrição'];
+                $tableName    = "hospital.".$tabela;
+                $fields       = "paciente_id, medico_id, sala_id, secretario_id, data, horario, descrição";
+                $keyField     = "";
+                $dbQueryIns   = new DBQuery($tableName, $fields, $keyField);
+                $resultSet    = $dbQueryIns->insert([$idPaciente, $idMedico, $idSala, $idSecretario, $data, $horario, $descrição]);
                 echo "<p class='center'>Agendamento cadastrado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar agendamento!</p>";
             }
             break;
         case 'Enfermeiro':
-            $id         = $_POST['id'];
-            $nome       = $_POST['nome'];
-            $CIP        = $_POST['CIP'];
-            $telefone   = $_POST['telefone'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "enfermeiro_id, nome, CIP, telefone";
-            $keyField   = "enfermeiro_id";
-            $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryIns->insert([$id, $nome, $CIP, $telefone]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar enfermeiro!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $nome       = $_POST['nome'];
+                $CIP        = $_POST['CIP'];
+                $telefone   = $_POST['telefone'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "enfermeiro_id, nome, CIP, telefone";
+                $keyField   = "enfermeiro_id";
+                $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryIns->insert([$id, $nome, $CIP, $telefone]);
                 echo "<p class='center'>Enfermeiro cadastrado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar enfermeiro!</p>";
             }
             break;
         case 'Medico':
-            $id             = $_POST['id'];
-            $nome           = $_POST['nome'];
-            $especialização = $_POST['especialização'];
-            $telefone       = $_POST['telefone'];
-            $CRM            = $_POST['CRM'];
-            $tableName      = "hospital.".$tabela;
-            $fields         = "medico_id, nome, especialização, telefone, CRM";
-            $keyField       = "medico_id";
-            $dbQueryIns     = new DBQuery($tableName, $fields, $keyField);
-            $resultSet      = $dbQueryIns->insert([$id, $nome, $especialização, $telefone, $CRM]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar médico!</p>";
-            }
-            else{
+            try {
+                $id             = $_POST['id'];
+                $nome           = $_POST['nome'];
+                $especialização = $_POST['especialização'];
+                $telefone       = $_POST['telefone'];
+                $CRM            = $_POST['CRM'];
+                $tableName      = "hospital.".$tabela;
+                $fields         = "medico_id, nome, especialização, telefone, CRM";
+                $keyField       = "medico_id";
+                $dbQueryIns     = new DBQuery($tableName, $fields, $keyField);
+                $resultSet      = $dbQueryIns->insert([$id, $nome, $especialização, $telefone, $CRM]);
                 echo "<p class='center'>Médico cadastrado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar médico!</p>";
             }
             break;
         case 'Paciente':
-            $id              = $_POST['id'];
-            $nome            = $_POST['nome'];
-            $CPF             = $_POST['CPF'];
-            $idade           = $_POST['idade'];
-            $contato_familia = $_POST['contato_familia'];
-            $medico_id       = $_POST['idMedico'];
-            $secretario_id   = $_POST['idSecretario'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "paciente_id, nome, CPF, idade, contato_familia, medico_id, secretario_id";
-            $keyField   = "paciente_id";
-            $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryIns->insert([$id, $nome, $CPF, $idade, $contato_familia, $medico_id, $secretario_id]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar paciente!</p>";
-            }
-            else{
+            try {
+                $id              = $_POST['id'];
+                $nome            = $_POST['nome'];
+                $CPF             = $_POST['CPF'];
+                $idade           = $_POST['idade'];
+                $contato_familia = $_POST['contato_familia'];
+                $medico_id       = $_POST['idMedico'];
+                $secretario_id   = $_POST['idSecretario'];
+                $tableName       = "hospital.".$tabela;
+                $fields          = "paciente_id, nome, CPF, idade, contato_familia, medico_id, secretario_id";
+                $keyField        = "paciente_id";
+                $dbQueryIns      = new DBQuery($tableName, $fields, $keyField);
+                $resultSet       = $dbQueryIns->insert([$id, $nome, $CPF, $idade, $contato_familia, $medico_id, $secretario_id]);
                 echo "<p class='center'>Paciente cadastrado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar paciente!</p>";
             }
             break;
         case 'Sala':
-            $id         = $_POST['id'];
-            $tipo_sala  = $_POST['tipo_sala'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "sala_id, tipo_sala";
-            $keyField   = "sala_id";
-            $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryIns->insert([$id, $tipo_sala]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar sala!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tipo_sala  = $_POST['tipo_sala'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "sala_id, tipo_sala";
+                $keyField   = "sala_id";
+                $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryIns->insert([$id, $tipo_sala]);
                 echo "<p class='center'>Sala cadastrada com sucesso!</p>";
+
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar sala!</p>";
             }
             break;
         case 'Secretario':
-            $id         = $_POST['id'];
-            $nome       = $_POST['nome'];
-            $telefone   = $_POST['telefone'];
-            $CPF        = $_POST['CPF'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "secretario_id, nome, telefone, CPF";
-            $keyField   = "secretario_id";
-            $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryIns->insert([$id, $nome, $telefone, $CPF]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar secretário!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $nome       = $_POST['nome'];
+                $telefone   = $_POST['telefone'];
+                $CPF        = $_POST['CPF'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "secretario_id, nome, telefone, CPF";
+                $keyField   = "secretario_id";
+                $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryIns->insert([$id, $nome, $telefone, $CPF]);
                 echo "<p class='center'>Secretário cadastrado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar secretário!</p>";
             }
             break;
         case 'Medicos_enfermeiros':
-            $idMedico     = $_POST['idMedico'];
-            $idEnfermeiro = $_POST['idEnfermeiro'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "medico_id, enfermeiro_id";
-            $keyField   = "";
-            $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryIns->insert([$idMedico, $idEnfermeiro]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao cadastrar relação entre médico e enfermeiro!</p>";
-            }
-            else{
+            try {
+                $idMedico     = $_POST['idMedico'];
+                $idEnfermeiro = $_POST['idEnfermeiro'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "medico_id, enfermeiro_id";
+                $keyField   = "";
+                $dbQueryIns = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryIns->insert([$idMedico, $idEnfermeiro]);
                 echo "<p class='center'>Relação entre médico e enfermeiro cadastrada com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao cadastrar relação entre médico e enfermeiro!</p>";
             }
             break;
 

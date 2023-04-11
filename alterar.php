@@ -47,116 +47,110 @@
 
     switch($tabela){
         case 'Agendamento':
-            $idPaciente   = $_POST['idPaciente'];
-            $idMedico     = $_POST['idMedico'];
-            $idSala       = $_POST['idSala'];
-            $idSecretario = $_POST['idSecretario']; 
-            $data         = $_POST['data'];
-            $horario      = $_POST['horario'];
-            $descrição    = $_POST['descrição'];
-            $tableName    = "hospital.".$tabela;
-            $fields     = "paciente_id, medico_id, sala_id, secretario_id, data, horario, descrição";
-            $keyField   = "";
-            $dbQueryAlt   = new DBQuery($tableName, $fields, $keyField);
-            $resultSet    = $dbQueryAlt->updateWhere([$idPaciente, $idMedico, $idSala, $idSecretario, $data, $horario, $descrição], "paciente_id=".$idPaciente." AND medico_id=".$idMedico." AND sala_id=".$idSala." AND secretario_id=".$idSecretario."");
-            
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao atualizar agendamento!</p>";
-            }
-            else{
+            try {
+                $idPaciente   = $_POST['idPaciente'];
+                $idMedico     = $_POST['idMedico'];
+                $idSala       = $_POST['idSala'];
+                $idSecretario = $_POST['idSecretario']; 
+                $data         = $_POST['data'];
+                $horario      = $_POST['horario'];
+                $descrição    = $_POST['descrição'];
+                $tableName    = "hospital.".$tabela;
+                $fields       = "paciente_id, medico_id, sala_id, secretario_id, data, horario, descrição";
+                $keyField     = "";
+                $dbQueryAlt   = new DBQuery($tableName, $fields, $keyField);
+                $resultSet    = $dbQueryAlt->updateWhere([$idPaciente, $idMedico, $idSala, $idSecretario, $data, $horario, $descrição], "paciente_id=".$idPaciente." AND medico_id=".$idMedico." AND sala_id=".$idSala." AND secretario_id=".$idSecretario."");
                 echo "<p class='center'>Agendamento atualizado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao atualizar agendamento!</p>";
             }
             break;
         case 'Enfermeiro':
-            $id         = $_POST['id'];
-            $nome       = $_POST['nome'];
-            $CIP        = $_POST['CIP'];
-            $telefone   = $_POST['telefone'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "enfermeiro_id, nome, CIP, telefone";
-            $keyField   = "enfermeiro_id";
-            $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryAlt->update([$id, $nome, $CIP, $telefone]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao atualizar enfermeiro!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $nome       = $_POST['nome'];
+                $CIP        = $_POST['CIP'];
+                $telefone   = $_POST['telefone'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "enfermeiro_id, nome, CIP, telefone";
+                $keyField   = "enfermeiro_id";
+                $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryAlt->update([$id, $nome, $CIP, $telefone]);
                 echo "<p class='center'>Enfermeiro atualizado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao atualizar enfermeiro!</p>";
             }
             break;
         case 'Medico':
-            $id             = $_POST['id'];
-            $nome           = $_POST['nome'];
-            $especialização = $_POST['especialização'];
-            $telefone       = $_POST['telefone'];
-            $CRM            = $_POST['CRM'];
-            $tableName      = "hospital.".$tabela;
-            $fields         = "medico_id, nome, especialização, telefone, CRM";
-            $keyField       = "medico_id";
-            $dbQueryAlt     = new DBQuery($tableName, $fields, $keyField);
-            $resultSet      = $dbQueryAlt->update([$id, $nome, $especialização, $telefone, $CRM]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao atualizar médico!</p>";
-            }
-            else{
+            try {
+                $id             = $_POST['id'];
+                $nome           = $_POST['nome'];
+                $especialização = $_POST['especialização'];
+                $telefone       = $_POST['telefone'];
+                $CRM            = $_POST['CRM'];
+                $tableName      = "hospital.".$tabela;
+                $fields         = "medico_id, nome, especialização, telefone, CRM";
+                $keyField       = "medico_id";
+                $dbQueryAlt     = new DBQuery($tableName, $fields, $keyField);
+                $resultSet      = $dbQueryAlt->update([$id, $nome, $especialização, $telefone, $CRM]);
                 echo "<p class='center'>Médico atualizado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao atualizar médico!</p>";
             }
             break;
         case 'Paciente':
-            $id              = $_POST['id'];
-            $nome            = $_POST['nome'];
-            $CPF             = $_POST['CPF'];
-            $idade           = $_POST['idade'];
-            $contato_familia = $_POST['contato_familia'];
-            $medico_id       = $_POST['idMedico'];
-            $secretario_id   = $_POST['idSecretario'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "paciente_id, nome, CPF, idade, contato_familia, medico_id, secretario_id";
-            $keyField   = "paciente_id";
-            $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryAlt->update([$id, $nome, $CPF, $idade, $contato_familia, $medico_id, $secretario_id]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao atualizar paciente!</p>";
-            }
-            else{
+            try {
+                $id              = $_POST['id'];
+                $nome            = $_POST['nome'];
+                $CPF             = $_POST['CPF'];
+                $idade           = $_POST['idade'];
+                $contato_familia = $_POST['contato_familia'];
+                $medico_id       = $_POST['idMedico'];
+                $secretario_id   = $_POST['idSecretario'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "paciente_id, nome, CPF, idade, contato_familia, medico_id, secretario_id";
+                $keyField   = "paciente_id";
+                $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryAlt->update([$id, $nome, $CPF, $idade, $contato_familia, $medico_id, $secretario_id]);
                 echo "<p class='center'>Paciente atualizado com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao atualizar paciente!</p>";
             }
             break;
         case 'Sala':
-            $id         = $_POST['id'];
-            $tipo_sala  = $_POST['tipo_sala'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "sala_id, tipo_sala";
-            $keyField   = "sala_id";
-            $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryAlt->update([$id, $tipo_sala]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao atualizar sala!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $tipo_sala  = $_POST['tipo_sala'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "sala_id, tipo_sala";
+                $keyField   = "sala_id";
+                $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryAlt->update([$id, $tipo_sala]);
                 echo "<p class='center'>Sala atualizada com sucesso!</p>";
+            }
+            catch (Exception $err) {
+                echo "<p class='center'>Erro ao atualizar sala!</p>";
             }
             break;
         case 'Secretario':
-            $id         = $_POST['id'];
-            $nome       = $_POST['nome'];
-            $telefone   = $_POST['telefone'];
-            $CPF        = $_POST['CPF'];
-            $tableName  = "hospital.".$tabela;
-            $fields     = "secretario_id, nome, telefone, CPF";
-            $keyField   = "secretario_id";
-            $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
-            $resultSet  = $dbQueryAlt->update([$id, $nome, $telefone, $CPF]);
-
-            if ($resultSet == 0){
-                echo "<p class='center'>Erro ao atualizar secretário!</p>";
-            }
-            else{
+            try {
+                $id         = $_POST['id'];
+                $nome       = $_POST['nome'];
+                $telefone   = $_POST['telefone'];
+                $CPF        = $_POST['CPF'];
+                $tableName  = "hospital.".$tabela;
+                $fields     = "secretario_id, nome, telefone, CPF";
+                $keyField   = "secretario_id";
+                $dbQueryAlt = new DBQuery($tableName, $fields, $keyField);
+                $resultSet  = $dbQueryAlt->update([$id, $nome, $telefone, $CPF]);
                 echo "<p class='center'>Secretário atualizado com sucesso!</p>";
+            }
+            catch (Exception $err){
+                echo "<p class='center'>Erro ao atualizar secretário!</p>";
             }
             break;
         case 'Medico_enfermeiro':
